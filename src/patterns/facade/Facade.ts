@@ -1,15 +1,15 @@
-import {IFacade} from "../../interfaces/IFacade";
-import {IController} from "../../interfaces/IController";
-import {Controller} from "../../core/Controller";
-import {IModel} from "../../interfaces/IModel";
-import {Model} from "../../core/Model";
-import {IView} from "../../interfaces/IView";
-import {View} from "../../core/View";
-import {ICommand} from "../../interfaces/ICommand";
-import {IMediator} from "../../interfaces/IMediator";
-import {INotification} from "../../interfaces/INotification";
-import {Notification} from "../observer/Notification";
-import {IProxy} from "../../interfaces/IProxy";
+import {IFacade} from '../../interfaces/IFacade';
+import {IController} from '../../interfaces/IController';
+import {Controller} from '../../core/Controller';
+import {IModel} from '../../interfaces/IModel';
+import {Model} from '../../core/Model';
+import {IView} from '../../interfaces/IView';
+import {View} from '../../core/View';
+import {ICommand} from '../../interfaces/ICommand';
+import {IMediator} from '../../interfaces/IMediator';
+import {INotification} from '../../interfaces/INotification';
+import {Notification} from '../observer/Notification';
+import {IProxy} from '../../interfaces/IProxy';
 
 export class Facade implements IFacade {
 
@@ -26,67 +26,64 @@ export class Facade implements IFacade {
         this.initializeView();
     }
 
-    private initializeModel(): void {
-        if (this.model != null) return;
+    protected initializeModel(): void {
         this.model = Model.getInstance(this.multitonKey, (key: string) => new Model(key));
     }
 
-    private initializeController(): void {
-        if (this.controller != null) return;
+    protected initializeController(): void {
         this.controller = Controller.getInstance(this.multitonKey, (key: string) => new Controller(key));
     }
 
-    private initializeView(): void {
-        if (this.view != null) return;
+    protected initializeView(): void {
         this.view = View.getInstance(this.multitonKey, (key: string) => new View(key));
     }
 
     public registerCommand(notificationName: string, factory: () => ICommand): void {
-        this.controller.registerCommand(notificationName, factory);
+        this.controller?.registerCommand(notificationName, factory);
     }
 
     public hasCommand(notificationName: string): boolean {
-        return this.controller.hasCommand(notificationName);
+        return this.controller?.hasCommand(notificationName) ?? false;
     }
 
     public removeCommand(notificationName: string): void {
-        this.controller.removeCommand(notificationName);
+        this.controller?.removeCommand(notificationName);
     }
 
     public registerProxy(proxy: IProxy): void {
-        this.model.registerProxy(proxy);
+        this.model?.registerProxy(proxy);
     }
 
     public retrieveProxy(proxyName: string): IProxy | null {
-        return this.model.retrieveProxy(proxyName);
+        return this.model?.retrieveProxy(proxyName) ?? null;
     }
 
     public hasProxy(proxyName: string): boolean {
-        return this.model.hasProxy(proxyName);
+        return this.model?.hasProxy(proxyName) ?? false;
     }
 
     public removeProxy(proxyName: string): IProxy | null {
-        return this.model.removeProxy(proxyName);
+        return this.model?.removeProxy(proxyName) ?? null;
     }
 
     public registerMediator(mediator: IMediator): void {
-        this.view.registerMediator(mediator);
+        this.view?.registerMediator(mediator);
     }
 
     public retrieveMediator(mediatorName: string): IMediator | null {
-        return this.view.retrieveMediator(mediatorName);
+        return this.view?.retrieveMediator(mediatorName) ?? null;
     }
 
     public hasMediator(mediatorName: string): boolean {
-        return this.view.hasMediator(mediatorName);
+        return this.view?.hasMediator(mediatorName) ?? false;
     }
 
     public removeMediator(mediatorName: string): IMediator | null {
-        return this.view.removeMediator(mediatorName);
+        return this.view?.removeMediator(mediatorName) ?? null;
     }
 
     public notifyObservers(notification: INotification): void {
-        this.view.notifyObservers(notification);
+        this.view?.notifyObservers(notification);
     }
 
     public sendNotification(notificationName: string, body?: any, type?: string): void {
@@ -121,10 +118,10 @@ export class Facade implements IFacade {
 
     protected view?: IView;
 
-    protected multitonKey: string;
+    protected multitonKey!: string;
 
     protected static instanceMap: { [key: string]: IFacade } = {};
 
-    protected static MULTITON_MSG: string = "Facade instance for this Multiton key already constructed!";
+    protected static MULTITON_MSG: string = 'Facade instance for this Multiton key already constructed!';
 
 }

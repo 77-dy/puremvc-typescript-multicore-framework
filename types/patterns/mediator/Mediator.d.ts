@@ -1,6 +1,6 @@
-import { IMediator } from "../../interfaces/IMediator";
-import { INotification } from "../../interfaces/INotification";
-import { Notifier } from "../observer/Notifier";
+import { IMediator } from '../../interfaces/IMediator';
+import { INotification } from '../../interfaces/INotification';
+import { Notifier } from '../observer/Notifier';
 export declare class Mediator extends Notifier implements IMediator {
     protected readonly _name: string;
     protected _viewComponent?: any;

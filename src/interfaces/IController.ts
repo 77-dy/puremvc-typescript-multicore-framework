@@ -1,5 +1,5 @@
-import {ICommand} from "./ICommand";
-import {INotification} from "./INotification";
+import {ICommand} from './ICommand';
+import {INotification} from './INotification';
 
 export interface IController {
     registerCommand(notificationName: string, factory: () => ICommand): void;

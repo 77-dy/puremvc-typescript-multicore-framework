@@ -1,6 +1,6 @@
-import {IMediator} from "../../interfaces/IMediator";
-import {INotification} from "../../interfaces/INotification";
-import {Notifier} from "../observer/Notifier";
+import {IMediator} from '../../interfaces/IMediator';
+import {INotification} from '../../interfaces/INotification';
+import {Notifier} from '../observer/Notifier';
 
 export class Mediator extends Notifier implements IMediator {
 
@@ -41,6 +41,6 @@ export class Mediator extends Notifier implements IMediator {
         this._viewComponent = viewComponent;
     }
 
-    public static NAME: string = "Mediator";
+    public static NAME: string = 'Mediator';
 
 }

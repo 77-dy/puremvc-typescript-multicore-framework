@@ -28,7 +28,7 @@ class Mediator extends Notifier_1.Notifier {
     set viewComponent(viewComponent) {
         this._viewComponent = viewComponent;
     }
-    static NAME = "Mediator";
+    static NAME = 'Mediator';
 }
 exports.Mediator = Mediator;
 //# sourceMappingURL=Mediator.js.map

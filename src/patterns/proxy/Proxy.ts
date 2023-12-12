@@ -1,5 +1,5 @@
-import {IProxy} from "../../interfaces/IProxy";
-import {Notifier} from "../observer/Notifier";
+import {IProxy} from '../../interfaces/IProxy';
+import {Notifier} from '../observer/Notifier';
 
 export class Proxy extends Notifier implements IProxy {
 
@@ -32,6 +32,6 @@ export class Proxy extends Notifier implements IProxy {
         this._data = data;
     }
 
-    public static NAME: string = "Proxy";
+    public static NAME: string = 'Proxy';
 
 }

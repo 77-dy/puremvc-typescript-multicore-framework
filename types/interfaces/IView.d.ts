@@ -1,6 +1,6 @@
-import { IMediator } from "./IMediator";
-import { INotification } from "./INotification";
-import { IObserver } from "./IObserver";
+import { IMediator } from './IMediator';
+import { INotification } from './INotification';
+import { IObserver } from './IObserver';
 export interface IView {
     registerObserver(notificationName: string, observer: IObserver): void;
     notifyObservers(notification: INotification): void;

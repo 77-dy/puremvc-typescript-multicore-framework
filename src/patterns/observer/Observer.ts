@@ -1,5 +1,5 @@
-import {IObserver} from "../../interfaces/IObserver";
-import {INotification} from "../../interfaces/INotification";
+import {IObserver} from '../../interfaces/IObserver';
+import {INotification} from '../../interfaces/INotification';
 
 export class Observer implements IObserver {
 
@@ -11,11 +11,11 @@ export class Observer implements IObserver {
         this._notifyContext = notifyContext;
     }
 
-    public set notifyMethod(notifyMethod: (notification: INotification) => void) {
+    public set notifyMethod(notifyMethod: ((notification: INotification) => void) | undefined) {
         this._notifyMethod = notifyMethod;
     }
 
-    public get notifyMethod(): (notification: INotification) => void {
+    public get notifyMethod(): ((notification: INotification) => void) | undefined {
         return this._notifyMethod;
     }
 
@@ -28,7 +28,7 @@ export class Observer implements IObserver {
     }
 
     public notifyObserver(notification: INotification): void {
-        this.notifyMethod.call(this.notifyContext, notification);
+        this.notifyMethod?.call(this.notifyContext, notification);
     }
 
     public compareNotifyContext(object: any): boolean {

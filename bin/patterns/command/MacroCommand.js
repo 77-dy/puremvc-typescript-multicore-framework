@@ -17,9 +17,11 @@ class MacroCommand extends Notifier_1.Notifier {
     execute(notification) {
         while (this.subCommands.length > 0) {
             let factory = this.subCommands.shift();
-            let command = factory();
-            command.initializeNotifier(this.multitonKey);
-            command.execute(notification);
+            let command = factory?.();
+            if (command) {
+                command.initializeNotifier(this.multitonKey);
+                command.execute(notification);
+            }
         }
     }
 }

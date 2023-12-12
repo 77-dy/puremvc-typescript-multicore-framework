@@ -23,7 +23,7 @@ class Proxy extends Notifier_1.Notifier {
     set data(data) {
         this._data = data;
     }
-    static NAME = "Proxy";
+    static NAME = 'Proxy';
 }
 exports.Proxy = Proxy;
 //# sourceMappingURL=Proxy.js.map

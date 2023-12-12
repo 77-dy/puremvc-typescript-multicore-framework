@@ -1,4 +1,4 @@
-import {INotification} from "../../interfaces/INotification";
+import {INotification} from '../../interfaces/INotification';
 
 export class Notification implements INotification {
 
@@ -6,7 +6,7 @@ export class Notification implements INotification {
 
     private _body?: any;
 
-    private _type?: string;
+    private _type?: string | undefined;
 
     public constructor(name: string, body?: any, type?: string) {
         this._name = name;
@@ -26,18 +26,18 @@ export class Notification implements INotification {
         this._body = body;
     }
 
-    public get type(): string {
+    public get type(): string | undefined {
         return this._type;
     }
 
-    public set type(type: string) {
+    public set type(type: string | undefined) {
         this._type = type;
     }
 
     public toString(): string {
         let msg: string = `Notification Name: ${this.name}`;
-        msg += `\nBody: ${this.body ? this.body : "null"}`;
-        msg += `\nType: ${this.type ?? "null"}`;
+        msg += `\nBody: ${this.body ? this.body : 'null'}`;
+        msg += `\nType: ${this.type ?? 'null'}`;
         return msg;
     }
 

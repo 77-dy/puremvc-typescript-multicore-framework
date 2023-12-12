@@ -1,5 +1,5 @@
 import { IModel } from "../interfaces/IModel";
-import { IProxy } from "../interfaces/IProxy";
+import { IProxy } from '../interfaces/IProxy';
 export declare class Model implements IModel {
     constructor(key: string);
     protected initializeModel(): void;

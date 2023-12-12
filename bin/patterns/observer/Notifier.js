@@ -15,7 +15,7 @@ class Notifier {
         return Facade_1.Facade.getInstance(this.multitonKey, (key) => new Facade_1.Facade(key));
     }
     multitonKey;
-    static MULTITON_MSG = "multitonKey for this Notifier not yet initialized!";
+    static MULTITON_MSG = 'multitonKey for this Notifier not yet initialized!';
 }
 exports.Notifier = Notifier;
 //# sourceMappingURL=Notifier.js.map

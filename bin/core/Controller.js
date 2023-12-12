@@ -5,8 +5,9 @@ const View_1 = require("./View");
 const Observer_1 = require("../patterns/observer/Observer");
 class Controller {
     constructor(key) {
-        if (Controller.instanceMap[key] != null)
+        if (Controller.instanceMap[key] != null) {
             throw Error(Controller.MULTITON_MSG);
+        }
         this.multitonKey = key;
         Controller.instanceMap[key] = this;
         this.commandMap = {};
@@ -17,7 +18,7 @@ class Controller {
     }
     registerCommand(notificationName, factory) {
         if (this.commandMap[notificationName] == null) {
-            this.view.registerObserver(notificationName, new Observer_1.Observer(this.executeCommand, this));
+            this.view?.registerObserver(notificationName, new Observer_1.Observer(this.executeCommand, this));
         }
         this.commandMap[notificationName] = factory;
     }
@@ -34,7 +35,7 @@ class Controller {
     }
     removeCommand(notificationName) {
         if (this.hasCommand(notificationName)) {
-            this.view.removeObserver(notificationName, this);
+            this.view?.removeObserver(notificationName, this);
             delete this.commandMap[notificationName];
         }
     }

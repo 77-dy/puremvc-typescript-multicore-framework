@@ -27,8 +27,8 @@ class Notification {
     }
     toString() {
         let msg = `Notification Name: ${this.name}`;
-        msg += `\nBody: ${this.body ? this.body : "null"}`;
-        msg += `\nType: ${this.type ?? "null"}`;
+        msg += `\nBody: ${this.body ? this.body : 'null'}`;
+        msg += `\nType: ${this.type ?? 'null'}`;
         return msg;
     }
 }

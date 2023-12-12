@@ -1,4 +1,4 @@
-import { INotification } from "./INotification";
+import { INotification } from './INotification';
 export interface IObserver {
     notifyMethod?: (notification: INotification) => void;
     notifyContext?: any;

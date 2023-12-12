@@ -1,5 +1,5 @@
-import {INotifier} from "./INotifier";
-import {INotification} from "./INotification";
+import {INotifier} from './INotifier';
+import {INotification} from './INotification';
 
 export interface IMediator extends INotifier {
     name: string;

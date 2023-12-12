@@ -1,4 +1,4 @@
-import {INotifier} from "./INotifier";
+import {INotifier} from './INotifier';
 
 export interface IProxy extends INotifier {
     readonly name: string;

@@ -1,8 +1,8 @@
-import {INotifier} from "./INotifier";
-import {ICommand} from "./ICommand";
-import {IMediator} from "./IMediator";
-import {INotification} from "./INotification";
-import {IProxy} from "./IProxy";
+import {INotifier} from './INotifier';
+import {ICommand} from './ICommand';
+import {IMediator} from './IMediator';
+import {INotification} from './INotification';
+import {IProxy} from './IProxy';
 
 export interface IFacade extends INotifier {
     registerCommand(notificationName: string, factory: () => ICommand): void;

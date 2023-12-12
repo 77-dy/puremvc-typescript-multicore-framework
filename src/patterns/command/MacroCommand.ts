@@ -1,6 +1,6 @@
-import {ICommand} from "../../interfaces/ICommand";
-import {INotification} from "../../interfaces/INotification";
-import {Notifier} from "../observer/Notifier";
+import {ICommand} from '../../interfaces/ICommand';
+import {INotification} from '../../interfaces/INotification';
+import {Notifier} from '../observer/Notifier';
 
 export class MacroCommand extends Notifier implements ICommand {
 
@@ -22,10 +22,12 @@ export class MacroCommand extends Notifier implements ICommand {
 
     public execute(notification: INotification): void {
         while (this.subCommands.length > 0) {
-            let factory: () => ICommand = this.subCommands.shift();
-            let command: ICommand = factory();
-            command.initializeNotifier(this.multitonKey);
-            command.execute(notification);
+            let factory: (() => ICommand) | undefined = this.subCommands.shift();
+            let command: ICommand | undefined = factory?.();
+            if (command) {
+              command.initializeNotifier(this.multitonKey);
+              command.execute(notification);
+            }
         }
     }
 

@@ -13,8 +13,16 @@ const Notifier_1 = require("./patterns/observer/Notifier");
 const Observer_1 = require("./patterns/observer/Observer");
 const Proxy_1 = require("./patterns/proxy/Proxy");
 exports.puremvc = {
-    Controller: Controller_1.Controller, Model: Model_1.Model, View: View_1.View,
-    SimpleCommand: SimpleCommand_1.SimpleCommand, MacroCommand: MacroCommand_1.MacroCommand, Facade: Facade_1.Facade, Mediator: Mediator_1.Mediator,
-    Notification: Notification_1.Notification, Notifier: Notifier_1.Notifier, Observer: Observer_1.Observer, Proxy: Proxy_1.Proxy
+    Controller: Controller_1.Controller,
+    Model: Model_1.Model,
+    View: View_1.View,
+    SimpleCommand: SimpleCommand_1.SimpleCommand,
+    MacroCommand: MacroCommand_1.MacroCommand,
+    Facade: Facade_1.Facade,
+    Mediator: Mediator_1.Mediator,
+    Notification: Notification_1.Notification,
+    Notifier: Notifier_1.Notifier,
+    Observer: Observer_1.Observer,
+    Proxy: Proxy_1.Proxy
 };
 //# sourceMappingURL=index.js.map

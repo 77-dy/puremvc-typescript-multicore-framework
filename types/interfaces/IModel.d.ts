@@ -1,4 +1,4 @@
-import { IProxy } from "./IProxy";
+import { IProxy } from './IProxy';
 export interface IModel {
     registerProxy(proxy: IProxy): void;
     retrieveProxy(proxyName: string): IProxy | null;

@@ -19,55 +19,49 @@ class Facade {
         this.initializeView();
     }
     initializeModel() {
-        if (this.model != null)
-            return;
         this.model = Model_1.Model.getInstance(this.multitonKey, (key) => new Model_1.Model(key));
     }
     initializeController() {
-        if (this.controller != null)
-            return;
         this.controller = Controller_1.Controller.getInstance(this.multitonKey, (key) => new Controller_1.Controller(key));
     }
     initializeView() {
-        if (this.view != null)
-            return;
         this.view = View_1.View.getInstance(this.multitonKey, (key) => new View_1.View(key));
     }
     registerCommand(notificationName, factory) {
-        this.controller.registerCommand(notificationName, factory);
+        this.controller?.registerCommand(notificationName, factory);
     }
     hasCommand(notificationName) {
-        return this.controller.hasCommand(notificationName);
+        return this.controller?.hasCommand(notificationName) ?? false;
     }
     removeCommand(notificationName) {
-        this.controller.removeCommand(notificationName);
+        this.controller?.removeCommand(notificationName);
     }
     registerProxy(proxy) {
-        this.model.registerProxy(proxy);
+        this.model?.registerProxy(proxy);
     }
     retrieveProxy(proxyName) {
-        return this.model.retrieveProxy(proxyName);
+        return this.model?.retrieveProxy(proxyName) ?? null;
     }
     hasProxy(proxyName) {
-        return this.model.hasProxy(proxyName);
+        return this.model?.hasProxy(proxyName) ?? false;
     }
     removeProxy(proxyName) {
-        return this.model.removeProxy(proxyName);
+        return this.model?.removeProxy(proxyName) ?? null;
     }
     registerMediator(mediator) {
-        this.view.registerMediator(mediator);
+        this.view?.registerMediator(mediator);
     }
     retrieveMediator(mediatorName) {
-        return this.view.retrieveMediator(mediatorName);
+        return this.view?.retrieveMediator(mediatorName) ?? null;
     }
     hasMediator(mediatorName) {
-        return this.view.hasMediator(mediatorName);
+        return this.view?.hasMediator(mediatorName) ?? false;
     }
     removeMediator(mediatorName) {
-        return this.view.removeMediator(mediatorName);
+        return this.view?.removeMediator(mediatorName) ?? null;
     }
     notifyObservers(notification) {
-        this.view.notifyObservers(notification);
+        this.view?.notifyObservers(notification);
     }
     sendNotification(notificationName, body, type) {
         this.notifyObservers(new Notification_1.Notification(notificationName, body, type));
@@ -96,7 +90,7 @@ class Facade {
     view;
     multitonKey;
     static instanceMap = {};
-    static MULTITON_MSG = "Facade instance for this Multiton key already constructed!";
+    static MULTITON_MSG = 'Facade instance for this Multiton key already constructed!';
 }
 exports.Facade = Facade;
 //# sourceMappingURL=Facade.js.map

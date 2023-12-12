@@ -21,7 +21,7 @@ class Observer {
         return this._notifyContext;
     }
     notifyObserver(notification) {
-        this.notifyMethod.call(this.notifyContext, notification);
+        this.notifyMethod?.call(this.notifyContext, notification);
     }
     compareNotifyContext(object) {
         return object == this.notifyContext;

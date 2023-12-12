@@ -1,17 +1,17 @@
-import { IFacade } from "../../interfaces/IFacade";
-import { IController } from "../../interfaces/IController";
-import { IModel } from "../../interfaces/IModel";
-import { IView } from "../../interfaces/IView";
-import { ICommand } from "../../interfaces/ICommand";
-import { IMediator } from "../../interfaces/IMediator";
-import { INotification } from "../../interfaces/INotification";
-import { IProxy } from "../../interfaces/IProxy";
+import { IFacade } from '../../interfaces/IFacade';
+import { IController } from '../../interfaces/IController';
+import { IModel } from '../../interfaces/IModel';
+import { IView } from '../../interfaces/IView';
+import { ICommand } from '../../interfaces/ICommand';
+import { IMediator } from '../../interfaces/IMediator';
+import { INotification } from '../../interfaces/INotification';
+import { IProxy } from '../../interfaces/IProxy';
 export declare class Facade implements IFacade {
     constructor(key: string);
     protected initializeFacade(): void;
-    private initializeModel;
-    private initializeController;
-    private initializeView;
+    protected initializeModel(): void;
+    protected initializeController(): void;
+    protected initializeView(): void;
     registerCommand(notificationName: string, factory: () => ICommand): void;
     hasCommand(notificationName: string): boolean;
     removeCommand(notificationName: string): void;

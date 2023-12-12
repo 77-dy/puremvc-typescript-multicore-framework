@@ -1,5 +1,5 @@
-import { IProxy } from "../../interfaces/IProxy";
-import { Notifier } from "../observer/Notifier";
+import { IProxy } from '../../interfaces/IProxy';
+import { Notifier } from '../observer/Notifier';
 export declare class Proxy extends Notifier implements IProxy {
     protected readonly _name: string;
     protected _data?: any;

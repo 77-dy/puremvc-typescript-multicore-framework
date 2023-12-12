@@ -8,7 +8,7 @@ import {Observer} from "../patterns/observer/Observer";
 export class Controller implements IController {
 
     public constructor(key: string) {
-        if (Controller.instanceMap[key] != null) throw Error(Controller.MULTITON_MSG);
+        if (Controller.instanceMap[key] != null) {throw Error(Controller.MULTITON_MSG);}
         this.multitonKey = key;
         Controller.instanceMap[key] = this;
         this.commandMap = {};
@@ -21,7 +21,7 @@ export class Controller implements IController {
 
     public registerCommand(notificationName: string, factory: () => ICommand): void {
         if (this.commandMap[notificationName] == null) {
-            this.view.registerObserver(notificationName, new Observer(this.executeCommand, this));
+            this.view?.registerObserver(notificationName, new Observer(this.executeCommand, this));
         }
         this.commandMap[notificationName] = factory;
     }
@@ -41,7 +41,7 @@ export class Controller implements IController {
 
     public removeCommand(notificationName: string): void {
         if (this.hasCommand(notificationName)) {
-            this.view.removeObserver(notificationName, this);
+            this.view?.removeObserver(notificationName, this);
             delete this.commandMap[notificationName];
         }
     }

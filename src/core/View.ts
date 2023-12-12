@@ -38,7 +38,7 @@ export class View implements IView {
     public removeObserver(notificationName: string, notifyContext: any): void {
         let observers: IObserver[] = this.observerMap[notificationName];
         for (let i: number = 0; i < observers.length; i++) {
-            if (observers[i].compareNotifyContext(notifyContext) == true) {
+            if (observers[i].compareNotifyContext(notifyContext)) {
                 observers.splice(i, 1);
                 break;
             }
